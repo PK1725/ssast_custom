@@ -260,7 +260,8 @@ class ASTModel(nn.Module):
 
         # average output of all tokens except cls token(s)
         x = torch.mean(x[:, self.cls_token_num:, :], dim=1)
-        x = self.mlp_head(x)
+        # commented out because this is the downstream task
+        #x = self.mlp_head(x)
         return x
 
     def finetuningcls(self, x):
